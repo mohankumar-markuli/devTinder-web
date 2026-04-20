@@ -8,6 +8,7 @@ import {BASE_URL} from "../utils/constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("charanraj@gmail.com");
   const [password, setPassword] = useState("password@REG123");
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
  const navigate = useNavigate();
@@ -23,14 +24,16 @@ const Login = () => {
         },
         { withCredentials: true },
       );
+      console.log(res.data);
 
       dispatch(addUser(res.data.data));
       navigate("/");
 
-    } catch (error) {
-      console.error("Login failed:", error);
+    } catch (error) { 
+      setError(error.response?.data?.ERROR || "Login failed. Please try again.");
     }
   };
+  
 
   return (
     <div className="flex justify-center my-10">
@@ -61,6 +64,9 @@ const Login = () => {
               />
             </fieldset>
           </div>
+          <p className="text-error">
+            {error}
+          </p>
           <div className="card-actions justify-center mt-2">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login

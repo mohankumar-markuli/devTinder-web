@@ -1,4 +1,5 @@
 # DevTinder
+part1
     - Create a Vite + Rest application
     - Remove unecessary code and create a Hello world app
     - Install tailwind CSS
@@ -10,7 +11,7 @@
     - Crate a browser router > Routers > Route = /Body > Route Chiildrens
     - Create an Outlet in your Body Component
     - Create a Footer
-
+Part2
     - create a login page
     - install axios - for backend apis
     - CORS - install cors in backend => add middleware to with configurations: origin, credentials: true
@@ -21,7 +22,10 @@
     - Login and see if the data is populated properly
     - NavBar should update as soon as user login
     - Refactor the code, add constant file + create components folder
-
-
+part3
+    - user Should not be accessed other routes without login
+    - If token is not present, redirect usre to login page
+    - logout
+    - profile
 
     
