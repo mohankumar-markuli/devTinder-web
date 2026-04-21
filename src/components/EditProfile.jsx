@@ -19,7 +19,6 @@ const EditProfile = ({ user }) => {
 
   const saveProfile = async () => {
     setError("");
-    console.log("Saving profile with data:", { firstName, lastName });
     try {
       const res = await axios.patch(
         `${BASE_URL}/profile/edit`,
@@ -33,7 +32,7 @@ const EditProfile = ({ user }) => {
         },
         { withCredentials: true },
       );
-      console.log("Profile updated successfully:", res.data.data);
+
       dispatch(addUser( {
           firstName,
           lastName,

@@ -21,7 +21,6 @@ const NavBar = () => {
     }
   };
 
-  console.log("Rendering NavBar with user:", user);
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
@@ -59,8 +58,8 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/settings" className="justify-between">
-                  Settings
+                <Link to="/connections" className="justify-between">
+                  Connections
                 </Link>
               </li>
               <li>
