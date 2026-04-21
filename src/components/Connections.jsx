@@ -6,7 +6,6 @@ import { addConnections } from "../utils/connectionSlice";
 
 const Connections = () => {
   const connection = useSelector((state) => state.connection);
-
   const dispatch = useDispatch();
 
   const fetchConnections = async () => {
@@ -39,21 +38,25 @@ const Connections = () => {
           connection;
 
         return (
-          <div className="flex m-4 mx-auto p-4 rounded-lg bg-base-300 shadow-sm" key={connection.id}>
-            <div>
-                <img
-                    alt="photo"
-                    className="w-20 h-20 object-cover rounded-full"
-                    src={photoUrl}
-                />
-            </div>  
+          <div
+            className="flex m-4 mx-auto p-4 rounded-lg bg-base-300 shadow-sm"
+            key={connection._id}
+          >
+            <img
+              alt="photo"
+              className="w-20 h-20 object-cover rounded-full"
+              src={photoUrl}
+            />
+
             <div className="ml-4 text-left">
-                <h2 className="text-lg font-bold">{firstName} {lastName}</h2>
-                {age && gender && <p>{age + " " + gender}</p>}
-                <p>{about}</p>
+              <h2 className="text-lg font-bold">
+                {firstName} {lastName}
+              </h2>
+              {age && gender && <p>{age + " " + gender}</p>}
+              <p>{about}</p>
             </div>
             <div className="ml-auto">
-                <button className="btn btn-primary mt-2">Chat</button>
+              <button className="btn btn-primary mt-2">Chat</button>
             </div>
           </div>
         );

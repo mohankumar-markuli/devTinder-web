@@ -1,4 +1,5 @@
 # DevTinder
+
 part1
 
     - Create a Vite + Rest application
@@ -12,6 +13,7 @@ part1
     - Crate a browser router > Routers > Route = /Body > Route Chiildrens
     - Create an Outlet in your Body Component
     - Create a Footer
+
 Part2
 
     - create a login page
@@ -25,16 +27,8 @@ Part2
     - NavBar should update as soon as user login
     - Refactor the code, add constant file + create components folder
 
-part3
-    - user Should not be accessed other routes without login
-    - If token is not present, redirect usre to login page
-    - logout
-    - get the feed and add feed in the store
-    - build the user card for feed
-    - edit profile feature
-    - show toste message on save of profile
+part3 - user Should not be accessed other routes without login - If token is not present, redirect usre to login page - logout feature - get the feed and add feed in the store - build the user card for feed - edit profile feature - show toste message on save of profile
 
-part-4
-    - see all my connections
+part4 - New Page : see all my connections - New Page : see all my connection request - Feature - Accept/ reject connection request - remove card after button actions
 
-    
+part5 - send/ignore the user card from feed - signup the user - end-to-end testing
