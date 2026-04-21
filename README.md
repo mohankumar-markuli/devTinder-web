@@ -1,5 +1,6 @@
 # DevTinder
 part1
+
     - Create a Vite + Rest application
     - Remove unecessary code and create a Hello world app
     - Install tailwind CSS
@@ -26,6 +27,7 @@ part3
     - user Should not be accessed other routes without login
     - If token is not present, redirect usre to login page
     - logout
+    - get the feed and add feed in the store
     - profile
 
     

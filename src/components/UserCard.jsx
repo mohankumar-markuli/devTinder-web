@@ -10,7 +10,11 @@ const UserCard = ({ user }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{firstName + " " + lastName}</h2>
+        <h2 className="card-title">
+          {firstName || lastName
+            ? `${firstName || ""} ${lastName || ""}`.trim()
+            : "Anonymous"}
+        </h2>
         {age && gender && <p>{age + " " + gender}</p>}
         <p>{about || "No bio available."}</p>
 
