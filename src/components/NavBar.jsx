@@ -20,6 +20,8 @@ const NavBar = () => {
       console.error("Logout failed:", error);
     }
   };
+
+  console.log("Rendering NavBar with user:", user);
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
@@ -42,10 +44,8 @@ const NavBar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="user avatar"
-                  src={
-                    user.profileUrl ||
-                    "https://imgs.search.brave.com/UTr6veG4xMIDEu0VF_H2a7AXfxHqAwAIoUjnTGIVw9Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvdGh1bWJu/YWlsL2RlZmF1bHQt/dXNlci1wcm9maWxl/LWljb24tbGVtbzg1/N3RqMWIzaW8yMS53/ZWJw"
-                  }
+                  key={user.photoUrl}
+                  src={user.photoUrl}
                 />
               </div>
             </div>
