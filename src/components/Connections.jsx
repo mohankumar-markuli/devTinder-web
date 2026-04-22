@@ -25,7 +25,11 @@ const Connections = () => {
 
   if (!connection) return;
   if (connection.length === 0)
-    return <h1 className="text-2xl font-bold">No Connections Found</h1>;
+    return (
+      <h1 className="text-2xl font-bold flex justify-center my-10">
+        No Connections Found
+      </h1>
+    );
 
   console.log("Connections from store:", connection);
 
