@@ -3,18 +3,23 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
-import {BASE_URL} from "../utils/constants";
+import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("charanraj@gmail.com");
-  const [password, setPassword] = useState("password@REG123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const [isLoginMode, setIsLoginMode] = useState(true);
+
   const [error, setError] = useState("");
 
   const dispatch = useDispatch();
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-   
     try {
       const res = await axios.post(
         `${BASE_URL}/login`,
@@ -27,18 +32,71 @@ const Login = () => {
 
       dispatch(addUser(res.data.data));
       navigate("/");
-
-    } catch (error) { 
-      setError(error.response?.data?.ERROR || "Login failed. Please try again.");
+    } catch (error) {
+      setError(
+        error.response?.data?.ERROR || "Login failed. Please try again.",
+      );
     }
   };
-  
+
+  const handleSignUp = async () => {
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/signup`,
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        { withCredentials: true },
+      );
+      dispatch(addUser(res.data.data));
+      return navigate("/profile");
+    } catch (error) {
+      setError(
+        error.response?.data?.ERROR || "Sign up failed. Please try again.",
+      );
+    }
+  };
 
   return (
     <div className="flex justify-center my-10">
       <div className="card bg-base-300 w-96 shadow-sm">
         <div className="card-body">
-          <h2 className="card-title justify-center">Login</h2>
+          <h2 className="card-title justify-center">
+            {isLoginMode ? "Login" : "Sign Up"}
+          </h2>
+          <div>
+            {!isLoginMode && (
+              <>
+                <div>
+                  <fieldset className="fieldset">
+                    <legend className="fieldset-legend">First Name</legend>
+                    <input
+                      type="text"
+                      className="input"
+                      placeholder="Enter First Name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </fieldset>
+                </div>
+                <div>
+                  <fieldset className="fieldset">
+                    <legend className="fieldset-legend">Last Name</legend>
+                    <input
+                      type="text"
+                      className="input"
+                      placeholder="Enter Last Name"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </fieldset>
+                </div>
+              </>
+            )}
+          </div>
           <div>
             <fieldset className="fieldset">
               <legend className="fieldset-legend">Email ID</legend>
@@ -63,14 +121,25 @@ const Login = () => {
               />
             </fieldset>
           </div>
-          <p className="text-error">
-            {error}
-          </p>
+          <p className="text-error">{error}</p>
+
           <div className="card-actions justify-center mt-2">
-            <button className="btn btn-primary" onClick={handleLogin}>
-              Login
+            <button
+              className="btn btn-primary"
+              onClick={isLoginMode ? handleLogin : handleSignUp}
+            >
+              {isLoginMode ? "Login" : "Sign Up"}
             </button>
           </div>
+
+          <p
+            className="m-auto mt-4 text-sm text-white-500 cursor-pointer"
+            onClick={() => setIsLoginMode((value) => !value)}
+          >
+            {isLoginMode
+              ? "New User? Sign Up"
+              : "Already have an account? Login"}
+          </p>
         </div>
       </div>
     </div>
