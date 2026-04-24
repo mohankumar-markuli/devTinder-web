@@ -27,8 +27,19 @@ Part2
     - NavBar should update as soon as user login
     - Refactor the code, add constant file + create components folder
 
-part3 - user Should not be accessed other routes without login - If token is not present, redirect usre to login page - logout feature - get the feed and add feed in the store - build the user card for feed - edit profile feature - show toste message on save of profile
+part3
 
-part4 - New Page : see all my connections - New Page : see all my connection request - Feature - Accept/ reject connection request - remove card after button actions
+    - user Should not be accessed other routes without login
+    - If token is not present, redirect usre to login page
+    - logout feature - get the feed and add feed in the store
+    - build the user card for feed
+    - edit profile feature
+    - show toste message on save of profile
+
+part4
+
+    - New Page : see all my connections - New Page : see all my connection request
+    - Feature - Accept/ reject connection request
+    - remove card after button actions
 
 part5 - send/ignore the user card from feed - signup the user - end-to-end testing

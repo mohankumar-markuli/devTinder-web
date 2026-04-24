@@ -19,6 +19,7 @@ const EditProfile = ({ user }) => {
 
   const saveProfile = async () => {
     setError("");
+    console.log(user);
     try {
       const res = await axios.patch(
         `${BASE_URL}/profile/edit`,
@@ -32,21 +33,23 @@ const EditProfile = ({ user }) => {
         },
         { withCredentials: true },
       );
+      console.log(res);
 
-      dispatch(addUser( {
+      dispatch(
+        addUser({
           firstName,
           lastName,
           photoUrl,
           age,
           gender,
           about,
-        }));
-      
+        }),
+      );
+
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
       }, 5000);
-
     } catch (error) {
       setError(
         error.response.data || "Failed to save profile. Please try again.",
